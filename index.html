@@ -1,0 +1,503 @@
+<!-- <?php
+$insert=false;
+if(isset($_POST['name'])){
+    echo "<meta http-equiv='refresh' content='0'>";
+   $server = "localhost";
+   $username = "root";
+   $password = "";
+   $con = mysqli_connect($server, $username, $password);
+   if(!$con){
+       die("Connection to database failed due to".mysqli_connect_error());
+   }
+
+$name =$_POST['name'];
+$email =$_POST['email'];
+$number =$_POST['number'];
+$table =$_POST['table'];
+$date =$_POST['date'];
+$time =$_POST['time'];
+$message =$_POST['message'];
+   $sql = "INSERT INTO `reservation`.`customer_details` (`Name`, `Email`, `Number`, `Reserved Table`, `Date`, `Time`, `Message`, `DT`) VALUES ('$name', '$email', '$number', '$table', '$date', '$time', '$message', current_timestamp())";
+  if($con->query($sql)==true){
+    $insert=true;
+  }
+  else{
+       echo "ERROR: $sql <br> $con->error";
+  }
+  $con->close();
+}
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Management</title>
+    <link rel="shortcut icon" href="ricon.png" type="icon" />
+   
+    <!-- Bootstrap -->
+    <link href="bootstrap.css" rel="stylesheet" />
+
+   
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .form h1 {
+            align-items: center;
+        }
+
+        .section-padding {
+            margin: 10vh 0% 10vh 0%;
+        }
+
+        #navbar {
+            background-color: black;
+        }
+
+        .heroSection {
+            background-image: url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 90vh;
+
+
+        }
+
+        .heroSection h1 {
+            color: white;
+            text-align: center;
+            margin: 10%;
+            background: rgb(238, 182, 79);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .sectionHeading {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            font-weight: 900;
+        }
+
+        .appointmentForm input {
+            width: 90%;
+            margin: 1%;
+            padding: 15px;
+            color: black;
+            height: 40px;
+        }
+
+        .appointmentForm button {
+            margin: 20px;
+            padding: 10px 40px 10px 40px;
+            background-color: white;
+            color: #000;
+        } 
+
+        .appointmentForm button:hover {
+            background-color: yellow;
+        }
+        .aboutContent{
+            width: 90%;
+            margin: 5%;
+            padding: 100px;
+        }
+        .aboutUsImage img{
+            width: 90%;
+            margin: 5%;
+        }
+        .darkSection {
+            background-color: #220606;
+            color: white;
+        }
+
+        .menuCard {
+            box-shadow: 0 15px 20px 0 rgb(119, 7, 172), 0 6px 20px 0 rgb(1, 5, 36);
+            margin: 20px;
+            padding: 0%;
+            border-radius: 15px;
+        }
+
+        .menuCard:hover {
+            box-shadow: 0 4px 8px 0 rgb(222, 189, 238), 0 6px 20px 0 rgb(144, 157, 255);
+        }
+
+        .menuCard img {
+            width: 100%;
+            height: 30vh;
+            border-radius: 15px 0px 0px 15px;
+        }
+
+        .menuCardContent {
+            padding: 20px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #151580;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #4fadec;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul id="top-menu" class="nav navbar-nav navbar-right mu-main-nav">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#mu-about-us">ABOUT US</a></li>
+                <li><a href="#mu-restaurant-menu">MENU</a></li>
+                <li><a href="#mu-reservation">RESERVATION</a></li>
+                <li><a href="#mu-order">ORDER</a></li>
+                <li><a href="#mu-gallery">GALLERY</a></li>
+                <li><a href="#mu-chef">OUR CHEFS</a></li>
+                <li><a href="#mu-location">LOCATION</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </header>
+</body>
+
+<section>
+    <div class="container-fluid heroSection">
+        <div class="row">
+            <h1> <b> Ajmer Restaurant</h1> </b>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+              <a id="mu-about-us"> <h1 class="sectionHeading">
+                 <b>   About Us </b>
+                </h1></a>
+            </div>
+            <div class="col-lg-6 aboutUsImage">
+                <img
+                    src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60">
+            </div>
+
+            <div class="aboutContent">
+                
+                ‘Ajmer Restaurant(AR)’ <br>
+
+                Since our modest beginnings in 2005 with a little space , ‘Ajmer Restaurant’ ‘s development has been enlivened with the energy to cook and serve solid, Indian-roused takeout food. In contrast to other Indian eateries, ‘Ajmer Rest.’ was made with the explicit expectation to appear as something else.
+                
+                We realize numerous individuals love Indian sustenance, yet a large number of them loathe or are unconscious of the regularly unfortunate fixings that make run-of-the-mill Indian nourishment taste so great. Our menu highlights things that utilization the sound and fragrant flavors, however forgets the stuffing ghee, spread, oil, and overwhelming cream.
+                
+                ‘AR’ has developed to incorporate four superb takeout areas in Toronto with additional to come sooner rather than later. Our group takes pride in the way that we can furnish our new and faithful clients with extraordinary tasting Indian-roused nourishment that is not normal for that at some other Indian eatery you visit. We perceive that a few people are as yet searching for the run of the mill Indian nourishment, and that is fine with us.
+
+                                
+
+                
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding darkSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+              <a id="mu-reservation"> <h1 class="sectionHeading">
+                   <b> Book a table </b>
+                </h1></a>
+            </div>
+            <div class="col-lg-12">
+                <div class="form">
+                    <h3 class="text-center">Please enter your information!</h3>
+                    <div class="column appointmentForm">
+                        <form action="index.php" method="POST">
+                            <div class="col-lg-6">
+                                <input type="text" name="name" id="name" placeholder="Name">
+                            </div>
+
+                            <div class="col-lg-6">
+                                <input type="EMAIL" name="email" id="email" placeholder="Email">
+                            </div>
+
+                            <div class="col-lg-6">
+                                <input type="text" name="number" id="number" placeholder="Phone Number">
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="number" name="table" id="table" placeholder="Number of tables">
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="date" name="date" id="date" placeholder="Date">
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="time" name="time" id="time" placeholder="Time">
+                            </div>     
+                            <div class="col-lg-12">
+                                <input type="text" name="message" id="message" placeholder="Message  for us !">
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <button type="submit">Book the table</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<section class="section-padding darkSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+              <a id="mu-order"> <h1 class="sectionHeading">
+                <div class="col-lg-6">
+                    <div class="box_style_2" id="order_process">
+                        <h2 class="inner">Your order details</h2>
+                        <div class="form-group">
+                            <label>First name</label>
+                            <input type="text" class="form-control" id="firstname_order" name="firstname_order" placeholder="First name">
+                        </div>
+                        <div class="form-group">
+                            <label>Last name</label>
+                            <input type="text" class="form-control" id="lastname_order" name="lastname_order" placeholder="Last name">
+                        </div>
+                        <div class="form-group">
+                            <label>Telephone/mobile</label>
+                            <input type="text" id="tel_order" name="tel_order" class="form-control" placeholder="Telephone/mobile">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="email_booking_2" name="email_order" class="form-control" placeholder="Your email">
+                        </div>
+                        <div class="form-group">
+                            <label>Your full address</label>
+                            <input type="text" id="address_order" name="address_order" class="form-control" placeholder=" Your full address">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input type="text" id="city_order" name="city_order" class="form-control" placeholder="Your city">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label>Postal code</label>
+                                    <input type="text" id="pcode_oder" name="pcode_oder" class="form-control" placeholder=" Your postal code">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label>Delivery Day</label>
+                                    <select class="form-control" name="delivery_schedule_day" id="delivery_schedule_day">
+                                        <option value="" selected>Select day</option>
+                                        <option value="Today">Today</option>
+                                        <option value="Tomorrow">Tomorrow</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label>Delivery time</label>
+                                    <select class="form-control" name="delivery_schedule_time" id="delivery_schedule_time">
+                                        <option value="" selected>Select time</option>
+                                        <option value="11.30am">11.30am</option>
+                                        <option value="11.45am">11.45am</option>
+                                        <option value="12.15am">12.15am</option>
+                                        <option value="12.30am">12.30am</option>
+                                        <option value="12.45am">12.45am</option>
+                                        <option value="01.00pm">01.00pm</option>
+                                        <option value="01.15pm">01.15pm</option>
+                                        <option value="01.30pm">01.30pm</option>
+                                        <option value="01.45pm">01.45pm</option>
+                                        <option value="02.00pm">02.00pm</option>
+                                        <option value="07.00pm">07.00pm</option>
+                                        <option value="07.15pm">07.15pm</option>
+                                        <option value="07.30pm">07.30pm</option>
+                                        <option value="07.45pm">07.45pm</option>
+                                        <option value="08.00pm">08.00pm</option>
+                                        <option value="08.15pm">08.15pm</option>
+                                        <option value="08.30pm">08.30pm</option>
+                                        <option value="08.45pm">08.45pm</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Notes for the restaurant</label>
+                                <textarea class="form-control" style="height:150px" placeholder="Ex. Allergies, cash change..." name="notes" id="notes"></textarea>
+                            </div>
+                        </div>
+                    </div><!-- End box_style_1 -->
+                </div><!-- End col -->
+                <div class="col-lg-3" id="sidebar">
+                    <div class="theiaStickySidebar">
+                        <div id="cart_box">
+                            <h3>Your order <i class="icon_cart_alt float-right"></i></h3>
+                            <table class="table table_summary">
+                                
+                                </tbody>
+                            </table>
+                            <hr>
+                            <div class="row" id="options_2">
+                                <div class="col-xl-6 col-md-12 col-sm-12 col-6">
+                                    <label><input type="radio" value="" checked name="option_2" class="icheck">Delivery</label>
+                                </div>
+                                <div class="col-xl-6 col-md-12 col-sm-12 col-6">
+                                    <label><input type="radio" value="" name="option_2" class="icheck">Take Away</label>
+                                </div>
+                            </div><!-- Edn options 2 -->
+                            <hr>
+                            <table class="table table_summary">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Subtotal 
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Delivery fee 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="total">
+                                            TOTAL 
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr>
+                            <a class="btn_full" href="cart.html">Order now</a>
+                        </div><!-- End cart_box -->
+                    </div><!-- End theiaStickySidebar -->
+                </div><!-- End col -->
+            </div><!-- End row -->
+        </div><!-- End container -->
+ </section>
+<section class="section-padding darkSection">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+             <a id="mu-restaurant-menu"> <h1 class="sectionHeading">
+                  <b>  Menu </b>
+                </h1></a>
+            </div>
+
+            <div class="col-lg-12 menuCard">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <img src="https://sukhis.com/wp-content/uploads/2017/06/Appetizers.jpg">
+                    </div>
+                    <div class="col-lg-9 menuCardContent">
+                        <p>
+                           <h3>Paneer Bread Pakoda - 109 rs</h3>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 menuCard">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=414&q=80">
+                    </div>
+                    <div class="col-lg-9 menuCardContent">
+                        <p>
+                            <h3>Cheese Veg Pizza - 249 rs</h3>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 menuCard">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80">
+                    </div>
+                    <div class="col-lg-9 menuCardContent">
+                        <p>
+                            <h3>Cheese Burger - 200 rs</h3>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 menuCard">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80">
+                    </div>
+                    <div class="col-lg-9 menuCardContent">
+                        <p>
+                            <h3>Sandwiches - 115 rs</h3>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 menuCard">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=597&q=80">
+                    </div>
+                    <div class="col-lg-9 menuCardContent">
+                        <p>
+                            <h3>Chowmin - 89 rs </h3>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section>
+    <a id="mu-gallery"> <h1 class="sectionHeading">
+        Gallery
+    </h1> </a>
+    <iframe 
+    src="https://cdn.vox-cdn.com/thumbor/8Z3c1Gx9obmKMQeOXWnCnPuKQdg=/0x0:1024x768/1200x900/filters:focal(0x0:1024x768)/cdn.vox-cdn.com/uploads/chorus_image/image/45572520/Ann_Arbor_s_Oldest_Collage.0.0.jpg"
+    width="100%" height="500px" styl="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+    
+</section>
+
+<section>
+    <a id="mu-our chefs"> <h1 class="sectionHeading">
+       <b> Our Chefs </b>
+    </h1> </a>
+    <iframe src="https://thetoptenchefs.com/wp/wp-content/uploads/2018/03/Top-10-culinary-institutes-in-India-900x450.jpg"
+    width="100%" height="500px" styl="border:0;" allowfullscreen="" loading="lazy">
+</iframe>
+
+    
+</section>
+ 
+
+<section>
+ <a id="mu-location"> <h1 class="sectionHeading">
+                   <b> Location </b>
+                </h1></a>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3570.9602874919874!2d74.62458721498882!3d26.48922348331181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396be7ba22f552a7%3A0x2595949d9d8abf91!2sTea%20Connect!5e0!3m2!1sen!2sin!4v1625511027004!5m2!1sen!2sin"
+        width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+</html>
